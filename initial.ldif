@@ -1,0 +1,56 @@
+dn: dc=example,dc=com
+objectClass: top
+objectClass: domain
+dc: example
+
+dn: ou=People,dc=example,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Apps,dc=example,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: Apps
+
+dn: ou=Groups,dc=example,dc=com
+objectClass: organizationalunit
+objectClass: top
+ou: Groups
+
+dn: ou=AppMemberships,dc=example,dc=com
+objectClass: organizationalunit
+objectClass: top
+ou: Groups
+
+dn: cn=Administrators,ou=Groups,dc=example,dc=com
+cn: Administrators
+objectClass: groupOfNames
+objectClass: top
+ou: Groups
+member: uid=setup,ou=People,dc=example,dc=com
+member: uid=somedude,ou=People,dc=example,dc=com
+
+dn: uid=setup,ou=People,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+givenName: Setup
+sn: Setup
+cn: Protonet Box Admin
+uid: setup
+userPassword: Changeme!123
+mail: setupuser@example.com
+
+dn: uid=somedude,ou=People,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+givenName: somedude
+sn: somedude
+cn: Protonet Box Dude
+uid: somedude
+userPassword: Changeme!123
+mail: somedude@example.com
