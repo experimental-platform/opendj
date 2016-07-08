@@ -5,7 +5,7 @@ set -o pipefail
 
 save_master_password() {
 	local MASTER_PASSWORD="$1"
-	curl --silent --fail -X PUT -d "value=$MASTER_PASSWORD" 'http://skvs/system/ldap_master_password' > /dev/null
+	curl --silent --fail -X PUT -d "value=$MASTER_PASSWORD" 'http://skvs/ldap/master_password' > /dev/null
 	sed "s/INSERT_MASTER_PASSWORD_HERE/$MASTER_PASSWORD/" -i /opt/opendj-install.properties
 }
 
