@@ -9,7 +9,7 @@ RUN apt-get update && \
 
 WORKDIR /opt
 
-RUN TMPFILE=$(mktemp); curl -q --fail https://download.forgerock.org/downloads/opendj/nightly/20160630_2328/opendj-4.0.0-20160630.zip > $TMPFILE && unzip $TMPFILE && rm $TMPFILE
+RUN TMPFILE=$(mktemp); curl -q --fail https://download.forgerock.org/downloads/opendj/nightly/20160713_2328/opendj-4.0.0-20160713.zip > $TMPFILE && unzip $TMPFILE && rm $TMPFILE
 
 RUN echo 'export PATH="$PATH:/opt/opendj/bin"' >> /etc/bash.bashrc
 
