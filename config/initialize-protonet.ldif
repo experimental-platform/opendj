@@ -4,11 +4,13 @@
 #objectClass: domain
 #dc: protonet
 
+# The list of users
 dn: ou=People,dc=protonet,dc=com
 objectClass: top
 objectClass: organizationalUnit
 ou: People
 
+# The list of apps
 dn: ou=Apps,dc=protonet,dc=com
 objectClass: top
 objectClass: organizationalUnit
@@ -22,7 +24,7 @@ ou: Groups
 dn: ou=AppMemberships,dc=protonet,dc=com
 objectClass: organizationalunit
 objectClass: top
-ou: Groups
+ou: AppMemberships
 
 dn: cn=Administrators,ou=Groups,dc=protonet,dc=com
 cn: Administrators
