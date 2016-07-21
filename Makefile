@@ -1,5 +1,8 @@
 .PHONY: build run shell
 
+configure:
+	ruby build-ldif.rb > config/initialize-protonet.ldif
+
 build:
 	docker build -t platform-ldap .
 

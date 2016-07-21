@@ -1,10 +1,4 @@
-# This already happens on openldap dpkg-config
-#dn: dc=protonet,dc=com
-#objectClass: top
-#objectClass: domain
-#dc: protonet
-
-# The list of users
+# ======== BEGIN BASE CONFIG ========
 dn: ou=People,dc=protonet,dc=com
 objectClass: top
 objectClass: organizationalUnit
@@ -25,35 +19,63 @@ dn: ou=AppMemberships,dc=protonet,dc=com
 objectClass: organizationalunit
 objectClass: top
 ou: AppMemberships
+# ======== END BASE CONFIG ========
 
+# ======== BEGIN USERS ========
+dn: uid=protonet1,ou=People,dc=protonet,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+givenName: protonet1
+sn: protonet1
+cn: Box Admin
+uid: protonet1
+userPassword: Changeme!123
+mail: setupuser@example.com
+
+dn: uid=protonet2,ou=People,dc=protonet,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+givenName: protonet2
+sn: protonet2
+cn: Box Dude
+uid: protonet2
+userPassword: Changeme!123
+mail: somedude@example.com
+# ======== END USERS ========
+
+# ======== BEGIN GROUP: Administrators ========
 dn: cn=Administrators,ou=Groups,dc=protonet,dc=com
 cn: Administrators
 objectClass: groupOfNames
 objectClass: top
 ou: Groups
-member: uid=setup,ou=People,dc=protonet,dc=com
-member: uid=somedude,ou=People,dc=protonet,dc=com
+member: uid=protonet1,ou=People,dc=protonet,dc=com
+# ======== END GROUP: Administrators ========
 
-dn: uid=setup,ou=People,dc=protonet,dc=com
+# ======== BEGIN APP: gitlab ========
+dn: uid=gitlab,ou=Apps,dc=protonet,dc=com
 objectClass: top
-objectClass: person
-objectClass: organizationalPerson
 objectClass: inetOrgPerson
-givenName: Setup
-sn: Setup
-cn: Protonet Box Admin
-uid: setup
-userPassword: Changeme!123
-mail: setupuser@example.com
+userPassword: demo
+sn: gitlab
+cn: gitlab
+uid: gitlab
 
-dn: uid=somedude,ou=People,dc=protonet,dc=com
+# TODO: Create ACL setting
+# dn: ou=People,dc=protonet,dc=com
+# changetype: modify
+# add: aci
+# aci: (targetattr!="userPassword")(target="ldap:///uid=*,ou=People,dc=protonet,dc=com")(targetfilter="(isMemberOf=cn=gitlab,ou=AppMemberships,dc=protonet,dc=com)")(version 3.0; acl "gitlab access to its users"; allow(all) userdn="ldap:///uid=gitlab,ou=Apps,dc=protonet,dc=com";)
+
+dn: cn=gitlab,ou=AppMemberships,dc=protonet,dc=com
+cn: gitlab
+objectClass: groupOfNames
 objectClass: top
-objectClass: person
-objectClass: organizationalPerson
-objectClass: inetOrgPerson
-givenName: somedude
-sn: somedude
-cn: Protonet Box Dude
-uid: somedude
-userPassword: Changeme!123
-mail: somedude@example.com
+ou: AppMemberships
+member: uid=protonet1,ou=People,dc=protonet,dc=com
+member: uid=protonet2,ou=People,dc=protonet,dc=com
+# ======== END APP: gitlab ========

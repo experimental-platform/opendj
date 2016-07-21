@@ -10,7 +10,7 @@ else
 end
 
 ldap = Net::LDAP.new(host: 'localhost', port: 389)
-ldap.auth "uid=setup,ou=People,dc=protonet,dc=com", "Changeme!123"
+ldap.auth "uid=protonet1,ou=People,dc=protonet,dc=com", "Changeme!123"
 if ldap.bind
   puts "Authed"
 else

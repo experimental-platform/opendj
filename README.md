@@ -1,5 +1,8 @@
 # Platform LDAP
 
+    # Build and run locally with:
+    make configure build run
+
 ## Reference
 
   * https://help.ubuntu.com/lts/serverguide/openldap-server.html
