@@ -3,6 +3,9 @@
     # Build and run locally with:
     make configure build run
 
+    # Adjust ldif generator with sample data:
+    vi build-ldif.rb
+
     # Run unit tests against it:
     ruby demo.rb
 
