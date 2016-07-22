@@ -3,6 +3,9 @@
     # Build and run locally with:
     make configure build run
 
+    # Run unit tests against it:
+    ruby demo.rb
+
 ## Reference
 
   * https://help.ubuntu.com/lts/serverguide/openldap-server.html

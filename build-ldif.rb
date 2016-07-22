@@ -94,7 +94,8 @@ end
 
 users = [
   User.new(email: 'setupuser@example.com', name: 'Box Admin', id: 1, groups: ["Administrators"], apps: ["gitlab"]),
-  User.new(email: 'somedude@example.com', name: 'Box Dude', id: 2, groups: [], apps: ["gitlab"])
+  User.new(email: 'somedude@example.com', name: 'Box Dude', id: 2, apps: ["gitlab"]),
+  User.new(email: 'noapp@example.com', name: 'Box Noapp Gal', id: 3)
 ]
 
 puts "# ======== BEGIN BASE CONFIG ========"

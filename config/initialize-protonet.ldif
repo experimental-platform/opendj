@@ -45,6 +45,18 @@ cn: Box Dude
 uid: protonet2
 userPassword: Changeme!123
 mail: somedude@example.com
+
+dn: uid=protonet3,ou=People,dc=protonet,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+givenName: protonet3
+sn: protonet3
+cn: Box Noapp Gal
+uid: protonet3
+userPassword: Changeme!123
+mail: noapp@example.com
 # ======== END USERS ========
 
 # ======== BEGIN GROUP: Administrators ========
@@ -65,7 +77,7 @@ sn: gitlab
 cn: gitlab
 uid: gitlab
 
-# TODO: Create ACL setting
+# TODO: Create ACL setting, currently failing :(
 # dn: ou=People,dc=protonet,dc=com
 # changetype: modify
 # add: aci
