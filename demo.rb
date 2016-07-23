@@ -1,5 +1,4 @@
 require 'net/ldap'
-require 'pry'
 require 'minitest'
 require 'minitest/autorun'
 
