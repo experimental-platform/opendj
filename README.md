@@ -7,7 +7,7 @@
     vi build-ldif.rb
 
     # Run unit tests against it:
-    ruby demo.rb
+    bundle && ruby demo.rb
 
 ## Reference
 
