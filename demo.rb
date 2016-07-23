@@ -1,5 +1,5 @@
-require 'net/ldap'
-require 'pry'
+require 'bundler'
+Bundler.require :default
 require 'minitest'
 require 'minitest/autorun'
 
