@@ -22,40 +22,40 @@ ou: AppMemberships
 # ======== END BASE CONFIG ========
 
 # ======== BEGIN USERS ========
-dn: uid=protonet1,ou=People,dc=protonet,dc=com
+dn: uid=setup.user,ou=People,dc=protonet,dc=com
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
-givenName: protonet1
-sn: protonet1
+givenName: setup.user
+sn: setup.user
 cn: Box Admin
-uid: protonet1
-userPassword: Changeme!123
+uid: setup.user
+userPassword: {CRYPT}$6$jkTeJq/ISmxqM5o8$5x9zecfLzhSQGpliIqFVivIVPsMgcpuGJoERV23VtcC471GthduMTe.mvY6vEk6ot/M562i8e91LWZ5LuCPJ01
 mail: setupuser@example.com
 
-dn: uid=protonet2,ou=People,dc=protonet,dc=com
+dn: uid=some.dude,ou=People,dc=protonet,dc=com
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
-givenName: protonet2
-sn: protonet2
+givenName: some.dude
+sn: some.dude
 cn: Box Dude
-uid: protonet2
-userPassword: Changeme!123
+uid: some.dude
+userPassword: {CRYPT}$6$jkTeJq/ISmxqM5o8$5x9zecfLzhSQGpliIqFVivIVPsMgcpuGJoERV23VtcC471GthduMTe.mvY6vEk6ot/M562i8e91LWZ5LuCPJ01
 mail: somedude@example.com
 
-dn: uid=protonet3,ou=People,dc=protonet,dc=com
+dn: uid=no.app,ou=People,dc=protonet,dc=com
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
-givenName: protonet3
-sn: protonet3
+givenName: no.app
+sn: no.app
 cn: Box Noapp Gal
-uid: protonet3
-userPassword: Changeme!123
+uid: no.app
+userPassword: {CRYPT}$6$jkTeJq/ISmxqM5o8$5x9zecfLzhSQGpliIqFVivIVPsMgcpuGJoERV23VtcC471GthduMTe.mvY6vEk6ot/M562i8e91LWZ5LuCPJ01
 mail: noapp@example.com
 # ======== END USERS ========
 
@@ -65,7 +65,7 @@ cn: Administrators
 objectClass: groupOfNames
 objectClass: top
 ou: Groups
-member: uid=protonet1,ou=People,dc=protonet,dc=com
+member: uid=setup.user,ou=People,dc=protonet,dc=com
 # ======== END GROUP: Administrators ========
 
 # ======== BEGIN APP: gitlab ========
@@ -88,6 +88,6 @@ cn: gitlab
 objectClass: groupOfNames
 objectClass: top
 ou: AppMemberships
-member: uid=protonet1,ou=People,dc=protonet,dc=com
-member: uid=protonet2,ou=People,dc=protonet,dc=com
+member: uid=setup.user,ou=People,dc=protonet,dc=com
+member: uid=some.dude,ou=People,dc=protonet,dc=com
 # ======== END APP: gitlab ========

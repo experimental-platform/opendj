@@ -71,16 +71,16 @@ LDIF
 
 
 class User
-  attr_reader :email, :id, :name, :groups, :apps
-  def initialize(email:, id:, name:, groups: [], apps: [])
-    @email, @id, @name, @groups, @apps = email, "protonet#{id}", name, groups, apps
+  attr_reader :email, :uid, :name, :groups, :apps
+  def initialize(email:, uid:, name:, groups: [], apps: [])
+    @email, @uid, @name, @groups, @apps = email, uid, name, groups, apps
   end
 
-  alias_method :sn, :id
-  alias_method :uid, :id
+  alias_method :sn, :uid
 
   def password
-    "Changeme!123"
+    # helloworld, hashed with unix_crypt sha512, see http://www.openldap.org/faq/data/cache/1467.html
+    "{CRYPT}$6$jkTeJq/ISmxqM5o8$5x9zecfLzhSQGpliIqFVivIVPsMgcpuGJoERV23VtcC471GthduMTe.mvY6vEk6ot/M562i8e91LWZ5LuCPJ01"
   end
 
   def to_ldif
@@ -93,9 +93,9 @@ class User
 end
 
 users = [
-  User.new(email: 'setupuser@example.com', name: 'Box Admin', id: 1, groups: ["Administrators"], apps: ["gitlab"]),
-  User.new(email: 'somedude@example.com', name: 'Box Dude', id: 2, apps: ["gitlab"]),
-  User.new(email: 'noapp@example.com', name: 'Box Noapp Gal', id: 3)
+  User.new(email: 'setupuser@example.com', name: 'Box Admin', uid: 'setup.user', groups: ["Administrators"], apps: ["gitlab"]),
+  User.new(email: 'somedude@example.com', name: 'Box Dude', uid: 'some.dude', apps: ["gitlab"]),
+  User.new(email: 'noapp@example.com', name: 'Box Noapp Gal', uid: 'no.app')
 ]
 
 puts "# ======== BEGIN BASE CONFIG ========"
