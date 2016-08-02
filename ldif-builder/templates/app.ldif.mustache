@@ -1,0 +1,25 @@
+# ================================================
+# LDAP App definition: {{name}}
+# ================================================
+dn: uid={{name}},ou=Apps,dc=protonet,dc=com
+objectClass: top
+objectClass: inetOrgPerson
+userPassword: {{password}}
+sn: {{name}}
+cn: {{name}}
+uid: {{name}}
+
+dn: cn={{name}},ou=AppMemberships,dc=protonet,dc=com
+cn: {{name}}}
+objectClass: groupOfNames
+objectClass: top
+ou: AppMemberships
+{{#members}}
+member: uid={{uid}},ou=People,dc=protonet,dc=com
+{{/members}}
+
+# TODO: Create ACL setting, currently failing :(
+# dn: ou=People,dc=protonet,dc=com
+# changetype: modify
+# add: aci
+# aci: (targetattr!="userPassword")(target="ldap:///uid=*,ou=People,dc=protonet,dc=com")(targetfilter="(isMemberOf=cn=%{name},ou=AppMemberships,dc=protonet,dc=com)")(version 3.0; acl "%{name} access to its users"; allow(all) userdn="ldap:///uid=%{name},ou=Apps,dc=protonet,dc=com";)

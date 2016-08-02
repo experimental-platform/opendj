@@ -1,0 +1,11 @@
+# ================================================
+# LDAP Group definition: {{name}}
+# ================================================
+dn: cn={{name}},ou=Groups,dc=protonet,dc=com
+cn: {{name}}
+objectClass: groupOfNames
+objectClass: top
+ou: Groups
+{{#members}}
+member: uid={{uid}},ou=People,dc=protonet,dc=com
+{{/members}}

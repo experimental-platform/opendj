@@ -1,0 +1,10 @@
+# ================================================
+# LDAP Group definition: DemoGroup
+# ================================================
+dn: cn=DemoGroup,ou=Groups,dc=protonet,dc=com
+cn: DemoGroup
+objectClass: groupOfNames
+objectClass: top
+ou: Groups
+member: uid=foo,ou=People,dc=protonet,dc=com
+member: uid=bar,ou=People,dc=protonet,dc=com

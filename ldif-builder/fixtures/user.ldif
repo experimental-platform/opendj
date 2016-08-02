@@ -1,0 +1,14 @@
+# ================================================
+# LDAP User definition: example.user
+# ================================================
+dn: uid=example.user,ou=People,dc=protonet,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+givenName: example.user
+sn: example.user
+cn: Foo Bar
+uid: example.user
+userPassword: {CRYPT}sample
+mail: example@example.com

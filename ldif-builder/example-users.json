@@ -1,0 +1,29 @@
+[
+  {
+    "uid": "setup.user",
+    "email": "setupuser@example.com",
+    "name": "Box Admin",
+    "groups": [
+      "Administrators"
+    ],
+    "apps": [
+      "gitlab"
+    ],
+    "password": "$6$jkTeJq/ISmxqM5o8$5x9zecfLzhSQGpliIqFVivIVPsMgcpuGJoERV23VtcC471GthduMTe.mvY6vEk6ot/M562i8e91LWZ5LuCPJ01"
+  },
+  {
+    "uid": "some.dude",
+    "email": "somedude@example.com",
+    "name": "Box Dude",
+    "apps": [
+      "gitlab"
+    ],
+    "password": "$6$jkTeJq/ISmxqM5o8$5x9zecfLzhSQGpliIqFVivIVPsMgcpuGJoERV23VtcC471GthduMTe.mvY6vEk6ot/M562i8e91LWZ5LuCPJ01"
+  },
+  {
+    "uid": "no.app",
+    "email": "noapp@example.com",
+    "name": "Box Noapp Gal",
+    "password": "$6$jkTeJq/ISmxqM5o8$5x9zecfLzhSQGpliIqFVivIVPsMgcpuGJoERV23VtcC471GthduMTe.mvY6vEk6ot/M562i8e91LWZ5LuCPJ01"
+  }
+]
