@@ -11,7 +11,6 @@ RUN apt-get update && \
 COPY ldif-builder /opt/ldif-builder
 RUN cd /opt/ldif-builder && bundle && bundle exec rspec spec.rb
 
-COPY ldif-builder/example-users.json /etc/ldap/users.json
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "/entrypoint.sh"]
