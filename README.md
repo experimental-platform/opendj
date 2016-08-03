@@ -1,13 +1,10 @@
 # Platform LDAP
 
     # Build and run locally with:
-    make configure build run
-
-    # Adjust ldif generator with sample data:
-    vi build-ldif.rb
+    make build run
 
     # Run unit tests against it:
-    bundle && ruby demo.rb
+    bundle && ruby test_ldap.rb
 
 ## Reference
 

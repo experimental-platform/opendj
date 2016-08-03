@@ -36,7 +36,9 @@ dpkg-reconfigure -f noninteractive slapd
 
 # Initial import
 status "Bootstrapping LDAP database"
-slapadd -v -l /etc/ldap/initialize-protonet.ldif
+ldap_init=/etc/ldap/initialize-protonet.ldif
+cd /opt/ldif-builder/ && ruby ldif-builder.rb /etc/ldap/users.json > $ldap_init
+slapadd -v -l $ldap_init
 
 status "Launching slapd"
 exec /usr/sbin/slapd -h "ldap:///" -u openldap -g openldap -d 1
