@@ -26,7 +26,7 @@ RSpec.describe "Ldif Builder" do
         expect(Render).to receive(:user).with(nothing_user).and_return("NOTHING_USER")
 
         expect(Render).to receive(:group).with("admins", members: [admin_user, admin_app_user]).and_return("ADMINS")
-        expect(Render).to receive(:app).with("gitlab", members: [app_user, admin_app_user]).and_return("GITLAB")
+        expect(Render).to receive(:app).with("gitlab", members: [admin_user, app_user, admin_app_user, nothing_user]).and_return("GITLAB")
         expect(Render).to receive(:app).with("soul", members: [app_user]).and_return("SOUL")
 
         # Assert we have called all the expected template renderings and return the assembled
@@ -92,8 +92,12 @@ RSpec.describe "Ldif Builder" do
     end
 
     describe "#apps" do
-      it "is an empty array by default" do
-        expect(User.new.apps).to be_empty
+      #it "is an empty array by default" do
+      #  expect(User.new.apps).to be_empty
+      #end
+
+      it "contains gitlab by default" do
+        expect(User.new.apps).to be == %w(gitlab)
       end
     end
   end
