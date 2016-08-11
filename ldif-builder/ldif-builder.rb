@@ -18,6 +18,12 @@ class User
 
   attribute :groups, Array[String]
   attribute :apps, Array[String]
+
+  def initialize(attributes={})
+    super attributes
+
+    apps << 'gitlab' unless apps.include? 'gitlab'
+  end
 end
 
 module Render
